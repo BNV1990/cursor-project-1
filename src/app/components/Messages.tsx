@@ -5,7 +5,7 @@ interface Message {
   name: string;
   status: "online" | "offline" | "work";
   time: string;
-  avatar: string;
+  color: string;
 }
 
 export default function Messages() {
@@ -15,56 +15,56 @@ export default function Messages() {
       name: "Ina Perry",
       status: "online",
       time: "12:45",
-      avatar: "/avatars/1.jpg",
+      color: "bg-purple-400",
     },
     {
       id: 2,
       name: "Wesley Ray",
       status: "online",
       time: "12:45",
-      avatar: "/avatars/2.jpg",
+      color: "bg-blue-400",
     },
     {
       id: 3,
       name: "Eula Burton",
       status: "work",
       time: "12:45",
-      avatar: "/avatars/3.jpg",
+      color: "bg-green-400",
     },
     {
       id: 4,
       name: "Viola Morales",
       status: "offline",
       time: "12:45",
-      avatar: "/avatars/4.jpg",
+      color: "bg-pink-400",
     },
     {
       id: 5,
       name: "Vincent Terry",
       status: "online",
       time: "12:45",
-      avatar: "/avatars/5.jpg",
+      color: "bg-yellow-400",
     },
     {
       id: 6,
       name: "Nell Burns",
       status: "offline",
       time: "12:45",
-      avatar: "/avatars/6.jpg",
+      color: "bg-red-400",
     },
     {
       id: 7,
       name: "Lydia Sutton",
       status: "online",
       time: "12:45",
-      avatar: "/avatars/7.jpg",
+      color: "bg-indigo-400",
     },
     {
       id: 8,
       name: "Cynthia Evans",
       status: "offline",
       time: "12:45",
-      avatar: "/avatars/8.jpg",
+      color: "bg-teal-400",
     },
   ];
 
@@ -140,17 +140,14 @@ export default function Messages() {
               className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer"
             >
               <div className="relative">
-                <img
-                  src={message.avatar}
-                  alt={message.name}
-                  className="w-10 h-10 rounded-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
-                      message.name
-                    )}&background=random`;
-                  }}
-                />
+                <div
+                  className={`w-10 h-10 rounded-full ${message.color} flex items-center justify-center text-white font-medium`}
+                >
+                  {message.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
+                </div>
                 <span
                   className={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full ${getStatusColor(
                     message.status
