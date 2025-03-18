@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 interface Message {
   id: number;
   name: string;
@@ -9,6 +11,8 @@ interface Message {
 }
 
 export default function Messages() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const messages: Message[] = [
     {
       id: 1,
@@ -94,6 +98,10 @@ export default function Messages() {
     }
   };
 
+  const filteredMessages = messages.filter((message) =>
+    message.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="bg-white rounded-xl">
       {/* Search */}
@@ -103,6 +111,8 @@ export default function Messages() {
             type="text"
             placeholder="Search in Messages"
             className="w-full h-10 pl-10 pr-4 bg-gray-50 rounded-lg text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
           <svg
             className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
@@ -134,7 +144,7 @@ export default function Messages() {
         </div>
 
         <div className="space-y-2">
-          {messages.map((message) => (
+          {filteredMessages.map((message) => (
             <div
               key={message.id}
               className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer"

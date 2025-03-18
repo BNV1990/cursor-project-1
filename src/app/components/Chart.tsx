@@ -22,15 +22,15 @@ const data = [
 
 export default function Chart() {
   return (
-    <div className="bg-white rounded-xl p-4 lg:p-6">
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-6">
+    <div>
+      <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900">
             Revenue Overview
           </h3>
           <p className="text-sm text-gray-500">Monthly revenue statistics</p>
         </div>
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-primary rounded-full"></div>
             <span className="text-sm text-gray-500">Income</span>
@@ -67,12 +67,13 @@ export default function Chart() {
               tickFormatter={(value) => `$${value}`}
               width={60}
             />
-            <Tooltip 
+            <Tooltip
               contentStyle={{
                 backgroundColor: "white",
                 border: "none",
                 borderRadius: "0.5rem",
-                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                boxShadow:
+                  "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
               }}
             />
             <Area
