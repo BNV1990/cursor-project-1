@@ -5,6 +5,7 @@ import Chart from "./components/Chart";
 import Messages from "./components/Messages";
 import ImageSlider from "./components/ImageSlider";
 import Projects from "./components/Projects";
+import Products from "./components/Products";
 
 interface StatCardProps {
   title: string;
@@ -140,6 +141,8 @@ export default function DashboardPage() {
           <StatCard key={index} {...stat} />
         ))}
       </div>
+
+      <Products />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
         <div className="lg:col-span-3">
