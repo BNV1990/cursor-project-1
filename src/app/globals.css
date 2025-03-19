@@ -3,13 +3,62 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 26, 29, 31;
-  --background-rgb: 247, 248, 250;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@layer base {
+  input[type="range"] {
+    @apply appearance-none bg-gray-200 h-2 rounded-lg;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 bg-primary rounded-full cursor-pointer;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply w-4 h-4 bg-primary border-none rounded-full cursor-pointer;
+  }
+
+  input[type="checkbox"] {
+    @apply rounded border-gray-300 text-primary focus:ring-primary;
+  }
+
+  input[type="radio"] {
+    @apply rounded-full border-gray-300 text-primary focus:ring-primary;
+  }
+}
+
+@layer components {
+  .text-primary {
+    @apply text-blue-600;
+  }
+
+  .bg-primary {
+    @apply bg-blue-600;
+  }
+
+  .ring-primary {
+    @apply ring-blue-600;
+  }
+
+  .hover\:text-primary:hover {
+    @apply text-blue-600;
+  }
+
+  .hover\:bg-primary:hover {
+    @apply bg-blue-600;
+  }
+
+  .focus\:ring-primary:focus {
+    @apply ring-blue-600;
+  }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  background: rgb(var(--background-start-rgb));
 }
 
 /* Swiper styles */

@@ -1,5 +1,7 @@
 "use client";
 
+import Filter from "./Filter";
+
 interface MenuItem {
   id: number;
   title: string;
@@ -79,6 +81,11 @@ export default function Navigation() {
     { id: 5, title: "Java Script Behavior" },
   ];
 
+  const handleFilterChange = (filters: any) => {
+    console.log("Filters changed:", filters);
+    // Тут можна додати логіку обробки фільтрів
+  };
+
   return (
     <nav className="fixed left-[72px] top-0 h-screen w-[280px] bg-white border-r border-gray-100 overflow-y-auto">
       <div className="p-6">
@@ -86,7 +93,7 @@ export default function Navigation() {
         <div className="relative mb-6">
           <input
             type="text"
-            placeholder="Search in Messages"
+            placeholder="Search products"
             className="w-full h-10 pl-10 pr-4 bg-gray-50 rounded-lg text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <svg
@@ -103,57 +110,8 @@ export default function Navigation() {
           </svg>
         </div>
 
-        {/* Main Menu */}
-        <div className="mb-8">
-          <h2 className="text-xs font-semibold text-gray-500 mb-4 uppercase tracking-wider">
-            Main Menu
-          </h2>
-          <ul className="space-y-1">
-            {mainMenu.map((item) => (
-              <li key={item.id}>
-                <button className="w-full flex items-center gap-3 h-10 px-3 rounded-lg hover:bg-gray-50 text-left group">
-                  <span className="text-gray-900 group-hover:text-primary">
-                    {item.icon}
-                  </span>
-                  <span className="text-sm text-gray-900">{item.title}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Projects */}
-        <div>
-          <h2 className="text-xs font-semibold text-gray-500 mb-4 uppercase tracking-wider">
-            Projects
-          </h2>
-          <ul className="space-y-1">
-            {projects.map((project) => (
-              <li key={project.id}>
-                <button
-                  className={`w-full flex items-center justify-between h-10 px-3 rounded-lg text-left ${
-                    project.isActive
-                      ? "bg-blue-50 text-primary"
-                      : "hover:bg-gray-50 text-gray-900"
-                  }`}
-                >
-                  <span className="text-sm font-medium">{project.title}</span>
-                  {project.isExpanded && (
-                    <svg
-                      className="text-gray-400"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path d="M7 10L12 15L17 10H7Z" fill="currentColor" />
-                    </svg>
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Filter */}
+        <Filter onFilterChange={handleFilterChange} />
       </div>
     </nav>
   );
