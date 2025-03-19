@@ -8,6 +8,32 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.1);
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.5);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.1) transparent;
+}
+
 @layer base {
   input[type="range"] {
     @apply appearance-none bg-gray-200 h-2 rounded-lg;
