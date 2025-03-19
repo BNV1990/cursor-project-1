@@ -4,6 +4,7 @@ import { useState } from "react";
 import Chart from "./components/Chart";
 import Messages from "./components/Messages";
 import ImageSlider from "./components/ImageSlider";
+import Projects from "./components/Projects";
 
 interface StatCardProps {
   title: string;
@@ -148,30 +149,8 @@ export default function DashboardPage() {
           <ImageSlider />
           <Chart />
         </div>
-        <div className="lg:col-span-3 bg-white rounded-xl p-4 lg:p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 lg:mb-6">
-            Recent Activity
-          </h3>
-          <div className="space-y-4 lg:space-y-6">
-            {[1, 2, 3, 4, 5].map((_, index) => (
-              <div key={index} className="flex items-start gap-3 lg:gap-4">
-                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.5 7H11V13L16.2 16.2L17 14.9L12.5 12.2V7Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm text-gray-900 truncate">
-                    New transaction completed
-                  </p>
-                  <p className="text-xs text-gray-500">2 minutes ago</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="lg:col-span-3">
+          <Projects />
         </div>
       </div>
     </div>
