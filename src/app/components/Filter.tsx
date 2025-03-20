@@ -1,15 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { setPriceRange, setSelectedColors } from "../store/slices/filterSlice";
 
 interface FilterProps {
   onFilterChange?: (filters: any) => void;
 }
 
 export default function Filter({ onFilterChange }: FilterProps) {
-  const [priceRange, setPriceRange] = useState(500);
+  const dispatch = useDispatch();
+  const { priceRange, selectedColors } = useSelector(
+    (state: RootState) => state.filter
+  );
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>([]);
   const [selectedRating, setSelectedRating] = useState<string>("all");
 
@@ -69,19 +74,17 @@ export default function Filter({ onFilterChange }: FilterProps) {
   };
 
   const handleColorChange = (colorId: string) => {
-    setSelectedColors((prev) => {
-      const newColors = prev.includes(colorId)
-        ? prev.filter((id) => id !== colorId)
-        : [...prev, colorId];
+    const newColors = selectedColors.includes(colorId)
+      ? selectedColors.filter((id) => id !== colorId)
+      : [...selectedColors, colorId];
 
-      onFilterChange?.({
-        categories: selectedCategories,
-        colors: newColors,
-        materials: selectedMaterials,
-        rating: selectedRating,
-        priceRange,
-      });
-      return newColors;
+    dispatch(setSelectedColors(newColors));
+    onFilterChange?.({
+      categories: selectedCategories,
+      colors: newColors,
+      materials: selectedMaterials,
+      rating: selectedRating,
+      priceRange,
     });
   };
 
@@ -114,13 +117,13 @@ export default function Filter({ onFilterChange }: FilterProps) {
   };
 
   const handlePriceChange = (value: number) => {
-    setPriceRange(value);
+    dispatch(setPriceRange([100, value]));
     onFilterChange?.({
       categories: selectedCategories,
       colors: selectedColors,
       materials: selectedMaterials,
       rating: selectedRating,
-      priceRange: value,
+      priceRange: [100, value],
     });
   };
 
@@ -130,13 +133,13 @@ export default function Filter({ onFilterChange }: FilterProps) {
       <div>
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-lg font-medium text-gray-900">Price</h3>
-          <span className="text-sm text-gray-500">${priceRange}</span>
+          <span className="text-sm text-gray-500">${priceRange[1]}</span>
         </div>
         <input
           type="range"
           min="100"
           max="5000"
-          value={priceRange}
+          value={priceRange[1]}
           onChange={(e) => handlePriceChange(Number(e.target.value))}
           className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
         />

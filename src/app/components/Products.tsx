@@ -1,5 +1,8 @@
 "use client";
 
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
+
 interface Product {
   id: number;
   name: string;
@@ -28,10 +31,23 @@ const products: Product[] = [
 ];
 
 export default function Products() {
+  const { priceRange, selectedColors } = useSelector(
+    (state: RootState) => state.filter
+  );
+
+  const filteredProducts = products.filter((product) => {
+    const matchesPrice =
+      product.price >= priceRange[0] && product.price <= priceRange[1];
+    const matchesColor =
+      selectedColors.length === 0 ||
+      selectedColors.includes(product.color.replace("bg-", "").split(" ")[0]);
+    return matchesPrice && matchesColor;
+  });
+
   return (
     <div className="bg-white rounded-xl p-6">
       <div className="grid grid-cols-12 gap-4">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <div
             key={product.id}
             className={`${product.color} p-4 rounded-lg shadow-sm hover:scale-105 transition-transform duration-200 cursor-pointer flex items-center justify-center aspect-square`}
