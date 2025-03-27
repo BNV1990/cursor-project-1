@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import { setPriceRange, setSelectedColors } from "../store/slices/filterSlice";
+import {
+  setPriceRange,
+  setSelectedColors,
+  setRating,
+} from "../store/slices/filterSlice";
 
 interface FilterProps {
   onFilterChange?: (filters: any) => void;
@@ -11,7 +15,7 @@ interface FilterProps {
 
 export default function Filter({ onFilterChange }: FilterProps) {
   const dispatch = useDispatch();
-  const { priceRange, selectedColors } = useSelector(
+  const { priceRange, selectedColors, rating } = useSelector(
     (state: RootState) => state.filter
   );
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -109,6 +113,8 @@ export default function Filter({ onFilterChange }: FilterProps) {
 
   const handleRatingChange = (ratingId: string) => {
     setSelectedRating(ratingId);
+    const ratingValue = ratingId === "all" ? 0 : Number(ratingId);
+    dispatch(setRating(ratingValue));
     onFilterChange?.({
       categories: selectedCategories,
       colors: selectedColors,

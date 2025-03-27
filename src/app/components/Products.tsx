@@ -33,7 +33,7 @@ const products: Product[] = [
 ];
 
 export default function Products() {
-  const { priceRange, selectedColors } = useSelector(
+  const { priceRange, selectedColors, rating } = useSelector(
     (state: RootState) => state.filter
   );
 
@@ -42,7 +42,8 @@ export default function Products() {
       product.price >= priceRange[0] && product.price <= priceRange[1];
     const matchesColor =
       selectedColors.length === 0 || selectedColors.includes(product.color);
-    return matchesPrice && matchesColor;
+    const matchesRating = rating === 0 || product.rating === rating;
+    return matchesPrice && matchesColor && matchesRating;
   });
 
   return (
