@@ -8,6 +8,7 @@ interface Product {
   name: string;
   price: number;
   color: string;
+  rating: number;
 }
 
 const products: Product[] = [
@@ -16,18 +17,19 @@ const products: Product[] = [
     name: "Product A",
     price: 100,
     color: "white",
+    rating: 4,
   },
-  { id: 2, name: "Product B", price: 500, color: "blue" },
-  { id: 3, name: "Product C", price: 900, color: "green" },
-  { id: 4, name: "Product D", price: 1300, color: "purple" },
-  { id: 5, name: "Product E", price: 1700, color: "orange" },
-  { id: 6, name: "Product F", price: 2100, color: "yellow" },
-  { id: 7, name: "Product G", price: 2500, color: "cyan" },
-  { id: 8, name: "Product H", price: 2900, color: "pink" },
-  { id: 9, name: "Product I", price: 3300, color: "indigo" },
-  { id: 10, name: "Product J", price: 3700, color: "teal" },
-  { id: 11, name: "Product K", price: 4100, color: "lime" },
-  { id: 12, name: "Product L", price: 4500, color: "emerald" },
+  { id: 2, name: "Product B", price: 500, color: "blue", rating: 3 },
+  { id: 3, name: "Product C", price: 900, color: "green", rating: 4 },
+  { id: 4, name: "Product D", price: 1300, color: "purple", rating: 2 },
+  { id: 5, name: "Product E", price: 1700, color: "orange", rating: 4 },
+  { id: 6, name: "Product F", price: 2100, color: "yellow", rating: 3 },
+  { id: 7, name: "Product G", price: 2500, color: "cyan", rating: 5 },
+  { id: 8, name: "Product H", price: 2900, color: "pink", rating: 2 },
+  { id: 9, name: "Product I", price: 3300, color: "indigo", rating: 4 },
+  { id: 10, name: "Product J", price: 3700, color: "teal", rating: 3 },
+  { id: 11, name: "Product K", price: 4100, color: "lime", rating: 5 },
+  { id: 12, name: "Product L", price: 4500, color: "emerald", rating: 2 },
 ];
 
 export default function Products() {
@@ -69,6 +71,13 @@ export default function Products() {
                 }`}
               >
                 ${product.price}
+              </div>
+              <div
+                className={`text-sm ${
+                  product.color === "white" ? "text-gray-800" : "text-white"
+                }`}
+              >
+                Rating: {product.rating}
               </div>
             </div>
           </div>
