@@ -1,7 +1,9 @@
 "use client";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store/store";
+import { setProductsTotalPrice } from "../store/slices/filterSlice";
+import { useEffect } from "react";
 
 interface Product {
   id: number;
@@ -36,6 +38,7 @@ export default function Products() {
   const { priceRange, selectedColors, rating } = useSelector(
     (state: RootState) => state.filter
   );
+  const dispatch = useDispatch();
 
   const filteredProducts = products.filter((product) => {
     const matchesPrice =
@@ -45,6 +48,14 @@ export default function Products() {
     const matchesRating = rating === 0 || product.rating === rating;
     return matchesPrice && matchesColor && matchesRating;
   });
+
+  useEffect(() => {
+    const totalPrice = filteredProducts.reduce(
+      (sum, product) => sum + product.price,
+      0
+    );
+    dispatch(setProductsTotalPrice(totalPrice));
+  }, [filteredProducts, dispatch]);
 
   return (
     <div className="bg-white rounded-xl p-6">

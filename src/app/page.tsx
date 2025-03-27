@@ -6,6 +6,8 @@ import Messages from "./components/Messages";
 import ImageSlider from "./components/ImageSlider";
 import Projects from "./components/Projects";
 import Products from "./components/Products";
+import { useSelector } from "react-redux";
+import { RootState } from "./store/store";
 
 interface StatCardProps {
   title: string;
@@ -53,10 +55,13 @@ function StatCard({ title, value, change, icon }: StatCardProps) {
 }
 
 export default function DashboardPage() {
+  const productsTotalPrice = useSelector(
+    (state: RootState) => state.filter.productsTotalPrice
+  );
   const stats = [
     {
       title: "Total Transactions",
-      value: "$2,789",
+      value: `$${productsTotalPrice}`,
       change: 12.5,
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

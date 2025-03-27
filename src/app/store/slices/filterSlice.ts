@@ -5,6 +5,7 @@ interface FilterState {
   selectedColors: string[];
   selectedSizes: string[];
   rating: number;
+  productsTotalPrice: number;
 }
 
 const initialState: FilterState = {
@@ -12,6 +13,7 @@ const initialState: FilterState = {
   selectedColors: [],
   selectedSizes: [],
   rating: 0,
+  productsTotalPrice: 0,
 };
 
 const filterSlice = createSlice({
@@ -30,9 +32,17 @@ const filterSlice = createSlice({
     setRating: (state, action: PayloadAction<number>) => {
       state.rating = action.payload;
     },
+    setProductsTotalPrice: (state, action: PayloadAction<number>) => {
+      state.productsTotalPrice = action.payload;
+    },
   },
 });
 
-export const { setPriceRange, setSelectedColors, setSelectedSizes, setRating } =
-  filterSlice.actions;
+export const {
+  setPriceRange,
+  setSelectedColors,
+  setSelectedSizes,
+  setRating,
+  setProductsTotalPrice,
+} = filterSlice.actions;
 export default filterSlice.reducer;
