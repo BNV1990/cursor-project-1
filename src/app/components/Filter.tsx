@@ -157,26 +157,6 @@ export default function Filter({ onFilterChange }: FilterProps) {
         </div>
       </div>
 
-      {/* Categories */}
-      <div>
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Categories</h3>
-        <div className="space-y-2">
-          {categories.map((category) => (
-            <label key={category.id} className="flex items-center">
-              <input
-                type="checkbox"
-                checked={selectedCategories.includes(category.id)}
-                onChange={() => handleCategoryChange(category.id)}
-                className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
-              />
-              <span className="ml-2 text-sm text-gray-700">
-                {category.label}
-              </span>
-            </label>
-          ))}
-        </div>
-      </div>
-
       {/* Colors */}
       <div>
         <h3 className="text-lg font-medium text-gray-900 mb-4">Colors</h3>
@@ -191,26 +171,6 @@ export default function Filter({ onFilterChange }: FilterProps) {
                   : ""
               }`}
             />
-          ))}
-        </div>
-      </div>
-
-      {/* Material */}
-      <div>
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Material</h3>
-        <div className="space-y-2">
-          {materials.map((material) => (
-            <label key={material.id} className="flex items-center">
-              <input
-                type="checkbox"
-                checked={selectedMaterials.includes(material.id)}
-                onChange={() => handleMaterialChange(material.id)}
-                className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
-              />
-              <span className="ml-2 text-sm text-gray-700">
-                {material.label}
-              </span>
-            </label>
           ))}
         </div>
       </div>
@@ -241,6 +201,46 @@ export default function Filter({ onFilterChange }: FilterProps) {
                     </svg>
                   ))}
                 {rating.label}
+              </span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Categories */}
+      <div>
+        <h3 className="text-lg font-medium text-gray-900 mb-4">Categories</h3>
+        <div className="space-y-2">
+          {categories.map((category) => (
+            <label key={category.id} className="flex items-center">
+              <input
+                type="checkbox"
+                checked={selectedCategories.includes(category.id)}
+                onChange={() => handleCategoryChange(category.id)}
+                className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+              />
+              <span className="ml-2 text-sm text-gray-700">
+                {category.label}
+              </span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Material */}
+      <div>
+        <h3 className="text-lg font-medium text-gray-900 mb-4">Material</h3>
+        <div className="space-y-2">
+          {materials.map((material) => (
+            <label key={material.id} className="flex items-center">
+              <input
+                type="checkbox"
+                checked={selectedMaterials.includes(material.id)}
+                onChange={() => handleMaterialChange(material.id)}
+                className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+              />
+              <span className="ml-2 text-sm text-gray-700">
+                {material.label}
               </span>
             </label>
           ))}

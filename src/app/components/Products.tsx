@@ -31,7 +31,7 @@ const products: Product[] = [
   { id: 9, name: "Product I", price: 3300, color: "indigo", rating: 4 },
   { id: 10, name: "Product J", price: 3700, color: "teal", rating: 3 },
   { id: 11, name: "Product K", price: 4100, color: "lime", rating: 5 },
-  { id: 12, name: "Product L", price: 4500, color: "emerald", rating: 2 },
+  { id: 12, name: "Product L", price: 4500, color: "emerald", rating: 1 },
 ];
 
 export default function Products() {
