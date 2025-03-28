@@ -22,7 +22,7 @@ const data = [
 
 export default function Chart() {
   return (
-    <div>
+    <div className="bg-white rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900">
