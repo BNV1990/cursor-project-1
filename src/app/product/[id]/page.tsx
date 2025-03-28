@@ -119,29 +119,29 @@ export default function ProductPage() {
           </div>
           <div className="p-8">
             <h2 className="text-xl font-semibold mb-4">You also can add</h2>
-            <div className="flex items-center justify-between space-x-4">
-              <div className="rounded-2xl p-4 shadow-md">
+            <div className="flex items-center space-x-4 overflow-x-auto md:flex md:items-center md:space-x-4 md:justify-between sm:flex sm:items-center sm:space-x-4 sm:justify-between flex-nowrap overflow-x-auto pb-4">
+              <div className="rounded-2xl p-4 shadow-md flex-shrink-0 w-48">
                 <div className="w-32 h-32 rounded-2xl bg-green-500"></div>
                 <p className="text-center">$2.00</p>
                 <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
                   +
                 </button>
               </div>
-              <div className="rounded-2xl p-4 shadow-md">
+              <div className="rounded-2xl p-4 shadow-md flex-shrink-0 w-48">
                 <div className="w-32 h-32 rounded-2xl bg-purple-500"></div>
                 <p className="text-center">$0.80</p>
                 <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
                   +
                 </button>
               </div>
-              <div className="rounded-2xl p-4 shadow-md">
+              <div className="rounded-2xl p-4 shadow-md flex-shrink-0 w-48">
                 <div className="w-32 h-32 rounded-2xl bg-green-800"></div>
                 <p className="text-center">$1.40</p>
                 <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
                   +
                 </button>
               </div>
-              <div className="rounded-2xl p-4 shadow-md">
+              <div className="rounded-2xl p-4 shadow-md flex-shrink-0 w-48">
                 <div className="w-32 h-32 rounded-2xl bg-red-500"></div>
                 <p className="text-center">$2.20</p>
                 <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
