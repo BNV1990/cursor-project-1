@@ -43,97 +43,111 @@ export default function ProductPage() {
     return <div>Product not found</div>;
   }
 
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div className="md:flex">
-          <div
-            className="md:w-1/2 p-8 flex items-center justify-center"
-            style={{ backgroundColor: product.color }}
-          >
-            <div className="w-64 h-64 rounded-full"></div>
-          </div>
-          <div className="md:w-1/2 p-8">
-            <div className="flex justify-between items-center">
-              <h1 className="text-3xl font-bold">{product.name}</h1>
-              <div className="text-yellow-500 text-xl">4.7 ★</div>
+    <div className="w-full">
+      <div className="mx-auto px-4 py-8">
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="md:flex">
+            <div
+              className="md:w-1/2 p-8 flex items-center justify-center"
+              style={{ backgroundColor: product.color }}
+            >
+              <div className="w-64 h-64 rounded-full"></div>
             </div>
-            <p className="text-gray-600 mt-4">{description}</p>
-            <div className="mt-6">
-              <h2 className="text-xl font-semibold mb-2">In your basket</h2>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <button className="bg-gray-200 rounded-full w-8 h-8">
-                    -
-                  </button>
-                  <span className="mx-2 text-lg">3</span>
-                  <button className="bg-gray-200 rounded-full w-8 h-8">
-                    +
-                  </button>
+            <div className="md:w-1/2 p-8">
+              <div className="flex justify-between items-center">
+                <h1 className="text-3xl font-bold">{product.name}</h1>
+                <div className="text-yellow-500 text-xl">4.7 ★</div>
+              </div>
+              <p className="text-gray-600 mt-4">{description}</p>
+              <div className="mt-6">
+                <h2 className="text-xl font-semibold mb-2">In your basket</h2>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <button className="bg-gray-200 rounded-full w-8 h-8">
+                      -
+                    </button>
+                    <span className="mx-2 text-lg">3</span>
+                    <button className="bg-gray-200 rounded-full w-8 h-8">
+                      +
+                    </button>
+                  </div>
+                  <div className="flex items-center">
+                    <button className="bg-gray-200 rounded-full w-8 h-8">
+                      -
+                    </button>
+                    <span className="mx-2 text-lg">8</span>
+                    <button className="bg-gray-200 rounded-full w-8 h-8">
+                      +
+                    </button>
+                  </div>
+                  <div className="flex items-center">
+                    <button className="bg-gray-200 rounded-full w-8 h-8">
+                      -
+                    </button>
+                    <span className="mx-2 text-lg">2</span>
+                    <button className="bg-gray-200 rounded-full w-8 h-8">
+                      +
+                    </button>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <button className="bg-gray-200 rounded-full w-8 h-8">
-                    -
-                  </button>
-                  <span className="mx-2 text-lg">8</span>
-                  <button className="bg-gray-200 rounded-full w-8 h-8">
-                    +
-                  </button>
-                </div>
-                <div className="flex items-center">
-                  <button className="bg-gray-200 rounded-full w-8 h-8">
-                    -
-                  </button>
-                  <span className="mx-2 text-lg">2</span>
-                  <button className="bg-gray-200 rounded-full w-8 h-8">
-                    +
-                  </button>
+              </div>
+              <div className="mt-6">
+                <h2 className="text-xl font-semibold mb-2">Additional Info</h2>
+                <div className="flex items-center justify-between">
+                  <div className="bg-gray-200 rounded-lg p-3 text-sm">
+                    Storage: 10-12 days
+                  </div>
+                  <div className="bg-gray-200 rounded-lg p-3 text-sm">
+                    Type: Mix of vegetables
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="mt-6">
-              <h2 className="text-xl font-semibold mb-2">Additional Info</h2>
-              <div className="flex items-center justify-between">
-                <div className="bg-gray-200 rounded-lg p-3 text-sm">
-                  Storage: 10-12 days
-                </div>
-                <div className="bg-gray-200 rounded-lg p-3 text-sm">
-                  Type: Mix of vegetables
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-        <div className="p-8">
-          <h2 className="text-xl font-semibold mb-4">You also can add</h2>
-          <div className="flex items-center justify-between space-x-4">
-            <div className="rounded-2xl p-4 shadow-md">
-              <div className="w-32 h-32 rounded-2xl bg-green-500"></div>
-              <p className="text-center">$2.00</p>
-              <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
-                +
-              </button>
-            </div>
-            <div className="rounded-2xl p-4 shadow-md">
-              <div className="w-32 h-32 rounded-2xl bg-purple-500"></div>
-              <p className="text-center">$0.80</p>
-              <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
-                +
-              </button>
-            </div>
-            <div className="rounded-2xl p-4 shadow-md">
-              <div className="w-32 h-32 rounded-2xl bg-green-800"></div>
-              <p className="text-center">$1.40</p>
-              <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
-                +
-              </button>
-            </div>
-            <div className="rounded-2xl p-4 shadow-md">
-              <div className="w-32 h-32 rounded-2xl bg-red-500"></div>
-              <p className="text-center">$2.20</p>
-              <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
-                +
-              </button>
+          <div className="p-8">
+            <h2 className="text-xl font-semibold mb-4">You also can add</h2>
+            <div className="flex items-center justify-between space-x-4">
+              <div className="rounded-2xl p-4 shadow-md">
+                <div className="w-32 h-32 rounded-2xl bg-green-500"></div>
+                <p className="text-center">$2.00</p>
+                <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
+                  +
+                </button>
+              </div>
+              <div className="rounded-2xl p-4 shadow-md">
+                <div className="w-32 h-32 rounded-2xl bg-purple-500"></div>
+                <p className="text-center">$0.80</p>
+                <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
+                  +
+                </button>
+              </div>
+              <div className="rounded-2xl p-4 shadow-md">
+                <div className="w-32 h-32 rounded-2xl bg-green-800"></div>
+                <p className="text-center">$1.40</p>
+                <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
+                  +
+                </button>
+              </div>
+              <div className="rounded-2xl p-4 shadow-md">
+                <div className="w-32 h-32 rounded-2xl bg-red-500"></div>
+                <p className="text-center">$2.20</p>
+                <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full w-10 h-10">
+                  +
+                </button>
+              </div>
             </div>
           </div>
         </div>
