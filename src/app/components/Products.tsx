@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store/store";
 import { setProductsTotalPrice } from "../store/slices/filterSlice";
 import { useEffect } from "react";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -61,38 +62,39 @@ export default function Products() {
     <div className="bg-white rounded-xl p-4 md:p-6">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-6">
         {filteredProducts.map((product) => (
-          <div
-            key={product.id}
-            className={`${
-              product.color === "white"
-                ? "bg-white border border-gray-200"
-                : `bg-${product.color}-500`
-            } p-4 rounded-lg shadow-sm hover:scale-105 transition-transform duration-200 cursor-pointer flex items-center justify-center aspect-square`}
-          >
-            <div className="text-center">
-              <div
-                className={`font-medium mb-2 ${
-                  product.color === "white" ? "text-gray-800" : "text-white"
-                }`}
-              >
-                {product.name}
-              </div>
-              <div
-                className={`text-sm ${
-                  product.color === "white" ? "text-gray-800" : "text-white"
-                }`}
-              >
-                ${product.price}
-              </div>
-              <div
-                className={`text-sm ${
-                  product.color === "white" ? "text-gray-800" : "text-white"
-                }`}
-              >
-                Rating: {product.rating}
+          <Link href={`/product/${product.id}`} key={product.id}>
+            <div
+              className={`${
+                product.color === "white"
+                  ? "bg-white border border-gray-200"
+                  : `bg-${product.color}-500`
+              } p-4 rounded-lg shadow-sm hover:scale-105 transition-transform duration-200 cursor-pointer flex items-center justify-center aspect-square`}
+            >
+              <div className="text-center">
+                <div
+                  className={`font-medium mb-2 ${
+                    product.color === "white" ? "text-gray-800" : "text-white"
+                  }`}
+                >
+                  {product.name}
+                </div>
+                <div
+                  className={`text-sm ${
+                    product.color === "white" ? "text-gray-800" : "text-white"
+                  }`}
+                >
+                  ${product.price}
+                </div>
+                <div
+                  className={`text-sm ${
+                    product.color === "white" ? "text-gray-800" : "text-white"
+                  }`}
+                >
+                  Rating: {product.rating}
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
