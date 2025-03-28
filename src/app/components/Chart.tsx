@@ -22,8 +22,10 @@ const data = [
 
 export default function Chart() {
   return (
-    <div className="bg-white rounded-xl p-6">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-white rounded-xl p-4 sm:p-6">
+      {/* Header Section */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+        {/* Title and Description */}
         <div>
           <h3 className="text-lg font-semibold text-gray-900">
             Revenue Overview
@@ -41,6 +43,7 @@ export default function Chart() {
           </div>
         </div>
       </div>
+      {/* Chart Container */}
 
       <div className="h-[250px] sm:h-[300px]">
         <ResponsiveContainer width="100%" height="100%">

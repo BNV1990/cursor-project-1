@@ -2,11 +2,18 @@
 
 export default function Header() {
   return (
-    <header className="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-6">
+    <header className="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-4 md:px-6">
       {/* Left side */}
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-4 md:gap-8">
+        {/* Hamburger Menu (visible on small screens) */}
+        <button className="md:hidden w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-50">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
         <h1 className="text-lg font-semibold text-gray-900">Constructor</h1>
-        <nav className="flex items-center gap-6">
+        {/* Desktop Navigation (hidden on small screens) */}
+        <nav className="hidden md:flex items-center gap-6">
           <a href="#" className="text-sm text-gray-900 hover:text-primary">
             Dashboard
           </a>
@@ -22,6 +29,7 @@ export default function Header() {
           <a href="#" className="text-sm text-gray-500 hover:text-primary">
             Contacts
           </a>
+          {/* More options button */}
           <button className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-50">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -34,16 +42,16 @@ export default function Header() {
       </div>
 
       {/* Right side */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-3">
         {/* Search */}
         <div className="relative">
           <input
             type="text"
-            placeholder="Search Transactions and Documents"
-            className="w-[280px] h-10 pl-10 pr-4 bg-gray-50 rounded-lg text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
+            placeholder="Search..."
+            className="w-full md:w-[280px] h-10 pl-10 pr-4 bg-gray-50 rounded-lg text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 md:w-6 md:h-6"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -72,14 +80,16 @@ export default function Header() {
           <img
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             alt="User"
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover"
           />
-          <div className="flex flex-col">
+          {/* User info text (hidden on small screens) */}
+          <div className="hidden md:flex flex-col">
             <span className="text-sm font-medium text-gray-900">
               Clayton Santos
             </span>
             <span className="text-xs text-gray-500">clayton@construct.com</span>
           </div>
+          {/* Dropdown button */}
           <button className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-50">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M7 10L12 15L17 10H7Z" fill="currentColor" />

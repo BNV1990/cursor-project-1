@@ -58,8 +58,8 @@ export default function Products() {
   }, [filteredProducts, dispatch]);
 
   return (
-    <div className="bg-white rounded-xl p-6">
-      <div className="grid grid-cols-12 gap-4">
+    <div className="bg-white rounded-xl p-4 md:p-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-6">
         {filteredProducts.map((product) => (
           <div
             key={product.id}

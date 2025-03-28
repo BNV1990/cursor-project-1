@@ -109,10 +109,10 @@ export default function Projects() {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="p-4 border border-gray-100 rounded-xl space-y-4"
+            className="p-3 sm:p-4 border border-gray-100 rounded-xl space-y-4"
           >
-            <div className="flex justify-between items-start">
-              <div className="flex items-center space-x-3">
+            <div className="flex justify-between items-start gap-2">
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
                   <Image
                     src={project.icon}
@@ -133,22 +133,23 @@ export default function Projects() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            {/* Project Details Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-sm">
               <div className="flex items-center space-x-2 text-gray-600">
-                <span className="text-lg">≡</span>
-                <span>{project.stages} Stages</span>
+                <span className="text-lg shrink-0">≡</span>
+                <span className="truncate">{project.stages} Stages</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-600">
-                <span className="text-lg">⏰</span>
-                <span>Deadline: {project.deadline}</span>
+                <span className="text-lg shrink-0">⏰</span>
+                <span className="truncate">Deadline: {project.deadline}</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-600">
-                <span className="text-lg">💰</span>
-                <span>Income: $ {project.income}</span>
+                <span className="text-lg shrink-0">💰</span>
+                <span className="truncate">Income: $ {project.income}</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-600">
-                <span className="text-lg">📋</span>
-                <span>{project.tasks} tasks</span>
+                <span className="text-lg shrink-0">📋</span>
+                <span className="truncate">{project.tasks} tasks</span>
               </div>
             </div>
 
