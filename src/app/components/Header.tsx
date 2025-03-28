@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Header() {
   return (
     <header className="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-4 md:px-6">
@@ -7,11 +9,24 @@ export default function Header() {
       <div className="flex items-center gap-4 md:gap-8">
         {/* Hamburger Menu (visible on small screens) */}
         <button className="md:hidden w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-50">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
           </svg>
         </button>
-        <h1 className="text-lg font-semibold text-gray-900">Constructor</h1>
+        <Link href="/" className="text-lg font-semibold text-gray-900">
+          Constructor
+        </Link>
         {/* Desktop Navigation (hidden on small screens) */}
         <nav className="hidden md:flex items-center gap-6">
           <a href="#" className="text-sm text-gray-900 hover:text-primary">
